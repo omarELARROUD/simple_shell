@@ -55,16 +55,12 @@ int check_path(char *command_path, char *paths[], char *args[],
 
 	if (args[0][0] != '/')
 	{
-		printf("Check: %s\n", args[0]);
-		printf("PATH_index Check: %d\n", path_index);
 		for (i = 0; i < path_index; i++)
 		{
 			/*Concatenate the command with the path*/
 			_strcpy(command_path, paths[i]);
 			_strcat(command_path, "/");
 			_strcat(command_path, args[0]);
-
-			printf("Check TWO: %s\n", command_path);
 
 			if (access(command_path, X_OK) == 0)
 			{
@@ -94,7 +90,7 @@ int main(void)
 	char *paths[50];
 	char *path_env = NULL, *token = NULL;
 	char command_path[100];
-	int command_found, path_index = 0, i;
+	int command_found, path_index = 0;
 
 	path_index = get_path(paths, path_env, path_index, token);
 
