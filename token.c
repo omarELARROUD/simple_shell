@@ -1,7 +1,11 @@
 #include "main.h"
 
-/*Break up a string into tokens */
-
+/**
+ * tokenize_str - break up string into tokens
+ * @str: string arg
+ * @args: hold for tokens
+ * Return: nothing
+ */
 void tokenize_str(char *str, char *args[])
 {
 	int i = 0;

@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _strcpy - copies one string to another
+ * @dest: string to be overwritten
+ * @src: source string
+ * Return: pointer to string
+ */
 char  *_strcpy(char *dest, char *src)
 {
 	char *ptr = dest;
@@ -12,5 +18,5 @@ char  *_strcpy(char *dest, char *src)
 	}
 	*dest = '\0';
 
-	return ptr;
+	return (ptr);
 }
