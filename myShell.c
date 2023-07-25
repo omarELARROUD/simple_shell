@@ -4,16 +4,10 @@
 
 extern char **environ;
 
-int main()
+int get_path(char *paths[], char *path_env, int path_index, char *token)
 {
-    char *input = NULL;
-    size_t input_size = 0;
-    char *args[MAX_LINE_LENGTH];
-	char *paths[50];
-	char *path_env = NULL, *token;
-	char command_path[100];
-	int command_found, path_index, i;
-
+	int i;
+	
 	/*get PATH from environ var*/
 	for (i = 0; environ[i] != NULL; i++)
 	{
@@ -34,6 +28,53 @@ int main()
         	token = strtok(NULL, ":");
 	}
 
+	return (path_index);
+}
+
+int check_path(char *command_path, char *paths[], char *args[], int path_index, int cmd_found)
+{
+	int i;
+
+	if (args[0][0] != '/')
+	{
+		printf("Check: %s\n", args[0]);
+		printf("PATH_index Check: %d\n", path_index);
+		for (i = 0; i < path_index; i++)
+		{
+			/*Concatenate the command with the path*/
+                	_strcpy(command_path, paths[i]);
+                	_strcat(command_path, "/");
+                	_strcat(command_path, args[0]);
+
+			printf("Check TWO: %s\n", command_path);
+                
+			if (access(command_path, X_OK) == 0)
+			{
+                    		cmd_found = 1;
+                    		break;
+			}
+		}
+	}
+	else
+	{
+		cmd_found = 1;
+		_strcpy(command_path, args[0]);
+	}
+
+	return (cmd_found);
+}
+
+int main()
+{
+    char *input = NULL;
+    size_t input_size = 0;
+    char *args[MAX_LINE_LENGTH];
+	char *paths[50];
+	char *path_env = NULL, *token = NULL;
+	char command_path[100];
+	int command_found, path_index = 0, i;
+
+	path_index = get_path(paths, path_env, path_index, token);
 
     while (1)
     {
@@ -47,30 +88,11 @@ int main()
 
         /*TOKENIZE input into arguments*/
         tokenize_str(input, args);
-	
-	if (args[0][0] != '/')
-	{
-		for (i = 0; i < path_index; i++)
-		{
-			/*Concatenate the command with the path*/
-                	_strcpy(command_path, paths[i]);
-                	_strcat(command_path, "/");
-                	_strcat(command_path, args[0]);
 
-                	if (access(command_path, X_OK) == 0)
-			{
-                    		command_found = 1;
-                    		break;
-			}
-		}
-	}
-	else
-	{
-		command_found = 1;
-		_strcpy(command_path, args[0]);
-	}
-
-        /*create process to execute command if found*/
+	/*Check cmd for PATH*/
+	command_found = check_path(command_path, paths, args, path_index, command_found);
+        
+	/*create process to execute command if found*/
 	if (command_found)
 		fork_call(args, command_path);
 	else
