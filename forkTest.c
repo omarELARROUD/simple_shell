@@ -1,6 +1,11 @@
 #include "main.h"
 
-/*Example of the fork system call process*/
+/**
+ * fork_call - Example of the fork system call process
+ * @args: holds arguments
+ * @command_path: holds the path to the command
+ * Return: Nothing
+ */
 
 void fork_call(char *args[], char *command_path)
 {
@@ -11,7 +16,7 @@ void fork_call(char *args[], char *command_path)
 	{
 		perror("Fork System Call Failed");
 		exit(EXIT_FAILURE);
-	}	
+	}
 
 	/*Child process*/
 	else if (pid == 0)

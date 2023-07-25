@@ -1,11 +1,17 @@
 #include "main.h"
 
+/**
+ * prompt - prompts and reads input from user
+ * @input: input read
+ * @n: size of input
+ * Return: nothing
+ */
 void prompt(char **input, size_t *n)
 {
 	size_t input_length;
-	ssize_t line_sum;	
+	ssize_t line_sum;
 
-        /*write prompt*/
+	/*write prompt*/
 	write(STDOUT_FILENO, ":) ", 3);
 
 	line_sum = getline(input, n, stdin);

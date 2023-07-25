@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _strcat - joins two strings together
+ * @dest: destination string
+ * @src: source string
+ * Return: pointer
+ */
 char  *_strcat(char *dest, char *src)
 {
 	char *ptr = dest;
@@ -15,5 +21,5 @@ char  *_strcat(char *dest, char *src)
 	}
 	*dest = '\0';
 
-	return ptr;
+	return (ptr);
 }
