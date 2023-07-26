@@ -1,7 +1,7 @@
 #include "main.h"
 
 #define MAX_PATHS 50
-
+extern char **environ;
 /**
  * get_path - Get PATH from environment variable
  * @env: Pointer to the environment variables
@@ -84,7 +84,7 @@ int check_path(char *command_path, char *paths[], char *args[],
  */
 #include "main.h"
 
-int main(int argc, char **argv, char **env)
+int main(void)
 {
 	char *input = NULL;
 	size_t input_size = 0;
@@ -93,6 +93,7 @@ int main(int argc, char **argv, char **env)
 	char command_path[100];
 	int path_index = 0;
 	int command_found;
+	char **env = environ;
 
 	path_index = get_path(env, paths);
 
