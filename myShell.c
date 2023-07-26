@@ -1,7 +1,6 @@
 #include "main.h"
 
 #define MAX_PATHS 50
-#define MAX_LINE_LENGTH 1024
 
 /**
  * get_path - Get PATH from environment variable
@@ -85,7 +84,6 @@ int check_path(char *command_path, char *paths[], char *args[],
  */
 #include "main.h"
 
-#define MAX_LINE_LENGTH 1024
 
 int main(int argc, char **argv, char **env)
 {

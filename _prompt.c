@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * prompt - Prompts and reads input from the user
+ * prompt - Prompts and reads input
  * @input: Pointer to the input read
  * @n: Size of the input
  *
