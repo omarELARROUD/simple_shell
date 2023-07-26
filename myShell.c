@@ -2,6 +2,7 @@
 
 #define MAX_PATHS 50
 
+extern char **environ;
 /**
  * get_path - Get PATH from environment variable
  * @env: Pointer to the environment variables
@@ -111,8 +112,7 @@ int main(void)
 		tokenize_str(input, args);
 
 		/* Check cmd for PATH */
-		command_found = check_path(command_path, paths, args,
-			path_index, command_found);
+		command_found = check_path(command_path, paths, args, path_index, command_found);
 
 		/* Create process to execute command if found */
 		if (command_found)

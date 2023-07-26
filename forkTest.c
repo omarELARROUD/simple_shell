@@ -28,6 +28,8 @@ void fork_call(char *args[], char *command_path)
 
 	/*Parent process waits for child*/
 	else
+	{
 		waitpid(pid, NULL, 0);
+	}
 }
 

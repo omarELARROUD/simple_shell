@@ -20,7 +20,6 @@ void tokenize_str(char *str, char *args[])
 	else
 	{
 		token = strtok(str, " \t\n");
-
 		while (token)
 		{
 			args[i] = token;
