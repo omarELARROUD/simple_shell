@@ -27,3 +27,4 @@ size_t _strcspn(const char *str, const char *rem)
 
 	return (i);
 }
+

@@ -11,32 +11,32 @@
  */
 int get_path(char **env, char *paths[])
 {
-    int i;
-    int path_index = 0;
-    char *path_env = NULL;
-    char *token;
+	int i;
+	int path_index = 0;
+	char *path_env = NULL;
+	char *token;
 
-    /* Get PATH from environ var */
-    for (i = 0; env[i] != NULL; i++)
-    {
-        if (_strncmp(env[i], "PATH=", 5) == 0)
-        {
-            path_env = env[i] + 5;
-            break;
-        }
-    }
+	/* Get PATH from environ var */
+	for (i = 0; env[i] != NULL; i++)
+	{
+		if (_strncmp(env[i], "PATH=", 5) == 0)
+		{
+			path_env = env[i] + 5;
+			break;
+		}
+	}
 
-    /* Break PATH into directories */
-    token = strtok(path_env, ":");
-    path_index = 0;
+	/* Break PATH into directories */
+	token = strtok(path_env, ":");
+	path_index = 0;
 
-    while (token != NULL && path_index < MAX_PATHS)
-    {
-        paths[path_index++] = token;
-        token = strtok(NULL, ":");
-    }
+	while (token != NULL && path_index < MAX_PATHS)
+	{
+		paths[path_index++] = token;
+		token = strtok(NULL, ":");
+	}
 
-    return path_index;
+	return path_index;
 }
 
 /**
@@ -84,46 +84,46 @@ int check_path(char *command_path, char *paths[], char *args[],
  */
 #include "main.h"
 
-
 int main(int argc, char **argv, char **env)
 {
-    char *input = NULL;
-    size_t input_size = 0;
-    char *args[MAX_LINE_LENGTH];
-    char *paths[50];
-    char command_path[100];
-    int path_index = 0;
-    int command_found;
+	char *input = NULL;
+	size_t input_size = 0;
+	char *args[MAX_LINE_LENGTH];
+	char *paths[50];
+	char command_path[100];
+	int path_index = 0;
+	int command_found;
 
-    path_index = get_path(env, paths);
+	path_index = get_path(env, paths);
 
-    while (1)
-    {
-        command_found = 0;
+	while (1)
+	{
+		command_found = 0;
 
-        /* Write prompt */
-        prompt(&input, &input_size);
+		/* Write prompt */
+		prompt(&input, &input_size);
 
-        if (_strncmp(input, " ", 2) == 0)
-            continue;
+		if (_strncmp(input, " ", 2) == 0)
+			continue;
 
-        /* Tokenize input into arguments */
-        tokenize_str(input, args);
+		/* Tokenize input into arguments */
+		tokenize_str(input, args);
 
-        /* Check cmd for PATH */
-        command_found = check_path(command_path, paths, args,
+		/* Check cmd for PATH */
+		command_found = check_path(command_path, paths, args,
 			path_index, command_found);
 
-        /* Create process to execute command if found */
-        if (command_found)
-            fork_call(args, command_path);
-        else
-            printf("RE: Command does not exist\n");
-    }
+		/* Create process to execute command if found */
+		if (command_found)
+			fork_call(args, command_path);
 
-    /* Free allocated memory for input */
-    free(input);
+        	else
+			printf("RE: Command does not exist\n");
 
-    return (0);
+	}
+
+	/* Free allocated memory for input */
+	free(input);
+	return (0);
 }
 

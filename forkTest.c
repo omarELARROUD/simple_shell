@@ -30,3 +30,4 @@ void fork_call(char *args[], char *command_path)
 	else
 		waitpid(pid, NULL, 0);
 }
+
