@@ -4,6 +4,7 @@
  * _strcpy - copies one string to another
  * @dest: string to be overwritten
  * @src: source string
+ *
  * Return: pointer to string
  */
 char  *_strcpy(char *dest, char *src)
@@ -20,4 +21,3 @@ char  *_strcpy(char *dest, char *src)
 
 	return (ptr);
 }
-

@@ -47,6 +47,7 @@ int get_path(char **env, char *paths[])
  * @args: hold for tokens
  * @path_index: index count for path
  * @cmd_found: check for commands found in PATH
+ *
  * Return: number of cmd_found
  */
 int check_path(char *command_path, char *paths[], char *args[],
@@ -127,4 +128,3 @@ int main(void)
 	free(input);
 	return (0);
 }
-

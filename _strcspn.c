@@ -4,6 +4,7 @@
  * _strcspn - removes a char from string
  * @str: string arg
  * @rem: char to remove
+ *
  * Return: number of data type size_t
  */
 size_t _strcspn(const char *str, const char *rem)
@@ -27,4 +28,3 @@ size_t _strcspn(const char *str, const char *rem)
 
 	return (i);
 }
-

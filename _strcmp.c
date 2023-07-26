@@ -4,6 +4,7 @@
  * _strcmp - compares two strings
  * @str1: string 1
  * @str2: string 2
+ *
  * Return: num difference between both strings
  */
 int _strcmp(char *str1, char *str2)
@@ -19,4 +20,3 @@ int _strcmp(char *str1, char *str2)
 	else
 		return (0);
 }
-

@@ -32,4 +32,3 @@ void fork_call(char *args[], char *command_path)
 		waitpid(pid, NULL, 0);
 	}
 }
-

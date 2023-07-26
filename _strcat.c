@@ -4,6 +4,7 @@
  * _strcat - joins two strings together
  * @dest: destination string
  * @src: source string
+ *
  * Return: pointer
  */
 char  *_strcat(char *dest, char *src)
@@ -23,4 +24,3 @@ char  *_strcat(char *dest, char *src)
 
 	return (ptr);
 }
-

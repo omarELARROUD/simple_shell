@@ -5,6 +5,7 @@
  * @str1: string 1
  * @str2: string 2
  * @n: number of bytes
+ *
  * Return: difference between str1 & str2 or 0
  */
 int _strncmp(char *str1, char *str2, int n)
@@ -19,4 +20,3 @@ int _strncmp(char *str1, char *str2, int n)
 	}
 	return (0);
 }
-
