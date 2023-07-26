@@ -1,7 +1,7 @@
 #include "main.h"
 
 #define MAX_PATHS 50
-extern char **environ;
+
 /**
  * get_path - Get PATH from environment variable
  * @env: Pointer to the environment variables
