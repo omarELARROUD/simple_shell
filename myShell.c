@@ -111,7 +111,8 @@ int main(int argc, char **argv, char **env)
         tokenize_str(input, args);
 
         /* Check cmd for PATH */
-        command_found = check_path(command_path, paths, args, path_index, command_found);
+        command_found = check_path(command_path, paths, args,
+			path_index, command_found);
 
         /* Create process to execute command if found */
         if (command_found)
@@ -125,3 +126,4 @@ int main(int argc, char **argv, char **env)
 
     return (0);
 }
+
