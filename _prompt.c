@@ -20,6 +20,7 @@ void prompt(char **input, size_t *n)
 	if (line_sum == -1)
 	{
 		write(STDOUT_FILENO, "\n", 1);
+		free(input);
 		exit(EXIT_SUCCESS);
 	}
 
@@ -28,5 +29,9 @@ void prompt(char **input, size_t *n)
 	(*input)[input_length] = '\0';
 
 	if (_strcmp(*input, "exit") == 0)
+	{
+		free(input);
 		exit(EXIT_SUCCESS);
+	}
+	free(input);
 }
