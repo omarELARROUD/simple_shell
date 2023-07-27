@@ -1,3 +1,4 @@
+#!/usr/bin/env perl
 #include "main.h"
 
 #define MAX_PATHS 50
@@ -37,7 +38,7 @@ int get_path(char **env, char *paths[])
 		token = strtok(NULL, ":");
 	}
 
-	return path_index;
+	return (path_index);
 }
 
 /**
@@ -113,13 +114,14 @@ int main(void)
 		tokenize_str(input, args);
 
 		/* Check cmd for PATH */
-		command_found = check_path(command_path, paths, args, path_index, command_found);
+		command_found = check_path(command_path, paths,
+				args, path_index, command_found);
 
 		/* Create process to execute command if found */
 		if (command_found)
 			fork_call(args, command_path);
 
-        	else
+		else
 			printf("RE: Command does not exist\n");
 
 	}
