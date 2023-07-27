@@ -15,6 +15,7 @@ void tokenize_str(char *str, char *args[])
 	if (str[0] == '/')
 	{
 		args[i++] = str;
+		free(args[i]);
 		args[i] = NULL;
 	}
 	else
