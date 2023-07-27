@@ -84,7 +84,7 @@ int check_path(char *command_path, char *paths[], char *args[],
  *Return: 0 on success
  */
 #include "main.h"
-extern char **environ;
+
 int main(void)
 {
 	char *input = NULL;
@@ -95,6 +95,7 @@ int main(void)
 	int path_index = 0;
 	int command_found;
 	char **env = environ;
+
 	path_index = get_path(env, paths);
 
 	while (1)
