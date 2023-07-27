@@ -1,12 +1,12 @@
-#include <stddef.h>  // Add this for NULL
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
-#include <unistd.h>  // Add this for X_OK
+#include <unistd.h>
 
-#include "main.h"  // Add this for custom function prototypes
+#include "main.h"
 
 #define MAX_PATHS 50
 
@@ -126,7 +126,7 @@ int main(void)
 			fork_call(args, command_path);
 
 		else
-			printf("RE: Command does not exist\n");
+			printf("hsh: %s: not found\n", args[0]);
 
 	}
 
