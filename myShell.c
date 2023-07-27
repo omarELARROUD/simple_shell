@@ -89,7 +89,7 @@ int main(void)
 {
 	char *input = NULL;
 	size_t input_size = 0;
-	char *args[MAX_LINE_LENGTH];
+	char *args[100];
 	char *paths[50];
 	char command_path[100];
 	int path_index = 0;
