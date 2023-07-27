@@ -1,3 +1,6 @@
 TEST_SUITES
 allowed_functions
 runchecker.bash
+path.c
+check_path.c
+*.o
