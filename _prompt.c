@@ -13,7 +13,7 @@ void prompt(char **input, size_t *n)
 	ssize_t line_sum;
 
 	/* Write prompt */
-	write(STDOUT_FILENO, "$ ", 2);
+	write(STDOUT_FILENO, "#cisfun$ ", 2);
 
 	line_sum = getline(input, n, stdin);
 
