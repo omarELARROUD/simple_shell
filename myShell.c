@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
 #include "main.h"
 
 #define MAX_PATHS 50
