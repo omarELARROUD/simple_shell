@@ -1,4 +1,12 @@
-#include "main.h"
+#include <stddef.h>  // Add this for NULL
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <string.h>
+#include <unistd.h>  // Add this for X_OK
+
+#include "main.h"  // Add this for custom function prototypes
 
 #define MAX_PATHS 50
 
@@ -83,8 +91,6 @@ int check_path(char *command_path, char *paths[], char *args[],
  * main - checks code
  *Return: 0 on success
  */
-#include "main.h"
-
 int main(void)
 {
 	char *input = NULL;

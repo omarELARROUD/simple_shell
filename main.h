@@ -9,6 +9,8 @@
 #include <sys/wait.h>
 #include <string.h>
 
+extern char **environ;
+
 /*function prototypes*/
 int sum(int x, int y);
 void tokenize_str(char *str, char *args[]);
