@@ -21,5 +21,7 @@ int _strncmp(char *str1, char *str2, int n);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 size_t _strcspn(const char *str, const char *rem);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
+void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
 
 #endif
